@@ -1,0 +1,15 @@
+objects.png
+
+potion_red 288 240 16 16
+potion_blue 304 240 16 16
+potion_green 320 240 16 16
+potion_yellow 336 240 16 16
+
+potion_large_red 288 224 16 16
+potion_large_blue 304 224 16 16
+potion_large_green 320 224 16 16
+potion_large_yellow 336 224 16 16
+
+heart_full 288 256 16 16
+heart_half 304 256 16 16
+heart_empty 320 256 16 16

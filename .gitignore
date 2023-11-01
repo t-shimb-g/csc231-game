@@ -1,0 +1,10 @@
+*~
+assets/*png
+assets/*mp3
+assets/*wav
+build
+cmake-build-debug
+*org
+.cache
+.idea
+
