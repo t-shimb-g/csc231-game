@@ -9,4 +9,4 @@ add_subdirectory(engine)
 add_subdirectory(content)
 
 add_executable(game main.cpp)
-target_link_libraries(game PUBLIC engine content)
+target_link_libraries(game PUBLIC engine entities)
