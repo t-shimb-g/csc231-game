@@ -8,8 +8,8 @@ add_subdirectory(audio)
 
 add_library(engine
   action.cpp
-        entity.cpp
-        entities.cpp
+  entity.cpp
+  entities.cpp
   camera.cpp
   engine.cpp
   event.cpp
