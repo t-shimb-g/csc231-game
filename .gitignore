@@ -7,4 +7,4 @@ cmake-build-debug
 *org
 .cache
 .idea
-
+.DS_Store
