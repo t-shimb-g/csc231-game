@@ -13,7 +13,7 @@ void Settings::load() {
     std::ifstream input{path};
     if (!input) {
         std::string msg{"Could not open settings file: "};
-        msg += std::filesystem::current_path() / path;
+        msg += (std::filesystem::current_path() / path).string();
         throw std::runtime_error(msg);
     }
 
