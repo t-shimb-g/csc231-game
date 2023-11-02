@@ -3,6 +3,7 @@
 #include <string>
 #include <filesystem>
 #include <unordered_map>
+#include <sstream>
 
 // general settings for game
 class Settings {
