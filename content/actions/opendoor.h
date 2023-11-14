@@ -6,8 +6,8 @@ class OpenDoor : public Action {
 public:
     Result perform(Engine& engine, std::shared_ptr<Entity> entity) override;
 
-    OpenDoor(Vec door_pos);
+    OpenDoor(Door& door);
 
 private:
-    Vec door_pos;
+    Door& door;
 };

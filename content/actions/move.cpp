@@ -10,7 +10,7 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
         return failure();
     }
     else if (tile.has_door() && !tile.door->is_open()) {
-        return alternative(OpenDoor{new_pos});
+        return alternative(OpenDoor{*tile.door});
     }
     else {
         entity->move_to(new_pos);
