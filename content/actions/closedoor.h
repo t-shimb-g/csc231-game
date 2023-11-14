@@ -1,8 +1,7 @@
 #include "action.h"
 
-class Vec;
-
-class Rest : public Action {
-public:
+class CloseDoor : public Action {
     Result perform(Engine& engine, std::shared_ptr<Entity> entity) override;
+
+
 };
