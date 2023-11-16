@@ -1,3 +1,5 @@
+#pragma once
+
 #include "action.h"
 
 class Vec;
