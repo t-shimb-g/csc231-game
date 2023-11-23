@@ -7,5 +7,4 @@ public:
     Cleaver(int damage);
 
     void use(Engine& engine, Entity& attacker, Entity& defender) override;
-    int get_damage();
 };
