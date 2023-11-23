@@ -12,9 +12,17 @@ int main() {
         std::shared_ptr<Entity> hero = engine.create_hero();
         Heros::make_wizard(hero);
 
-        for (int i = 0; i < 20; ++i) {
+        for (int i = 0; i < 5; ++i) {
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_orc_masked(monster);
+        }
+        for (int i = 0; i < 5; ++i) {
+            std::shared_ptr<Entity> monster = engine.create_monster();
+            Monsters::make_zombie(monster);
+        }
+        for (int i = 0; i < 5; ++i) {
+            std::shared_ptr<Entity> monster = engine.create_monster();
+            Monsters::make_goblin(monster);
         }
 
         engine.run();

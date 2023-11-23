@@ -4,6 +4,7 @@
 #include "rest.h"
 #include "move.h"
 #include "closedoor.h"
+#include "cleaver.h"
 
 
 namespace Heros {
@@ -11,6 +12,8 @@ namespace Heros {
     void make_wizard(std::shared_ptr<Entity> entity) {
         entity->set_sprite("wizard");
         entity->behavior = behavior;
+        entity->set_max_health(20);
+        entity->set_weapon(std::make_shared<Cleaver>(4));
     }
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity&) {
