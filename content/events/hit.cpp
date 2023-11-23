@@ -1,7 +1,6 @@
 #include "hit.h"
 #include "entity.h"
 #include "die.h"
-#include <iostream>
 
 Hit::Hit(Entity& entity, int damage)
     :entity{entity}, damage{damage} {}

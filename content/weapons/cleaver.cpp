@@ -8,7 +8,3 @@ Cleaver::Cleaver(int damage)
 void Cleaver::use(Engine& engine, Entity&, Entity& defender) {
     engine.events.create_event<Hit>(defender, damage);
 }
-
-int Cleaver::get_damage() {
-    return damage;
-}
