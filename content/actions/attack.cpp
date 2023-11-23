@@ -7,7 +7,7 @@
 Attack::Attack(Entity& attacker, Entity& defender)
     :attacker{attacker}, defender{defender} {}
 
-Result Attack::perform(Engine& engine, std::shared_ptr<Entity> entity) {
+Result Attack::perform(Engine& engine, std::shared_ptr<Entity>) {
     auto weapon = attacker.get_weapon();
     engine.events.create_event<Hit>(defender, weapon->damage);
     return success();

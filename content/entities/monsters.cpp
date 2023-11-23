@@ -5,24 +5,30 @@
 #include "randomness.h"
 #include "wander.h"
 #include "move.h"
+#include "knife.h"
+#include "spear.h"
+#include "bite.h"
 
 namespace Monsters {
     void make_orc_masked(std::shared_ptr<Entity> monster) {
         monster->set_sprite("orc_masked");
         monster->behavior = behavior;
         monster->set_max_health(12);
+        monster->set_weapon(std::make_shared<Spear>(2));
     }
 
     void make_zombie(std::shared_ptr<Entity> monster) {
         monster->set_sprite("zombie");
         monster->behavior = behavior;
         monster->set_max_health(20);
+        monster->set_weapon(std::make_shared<Bite>(2));
     }
 
     void make_goblin(std::shared_ptr<Entity> monster) {
         monster->set_sprite("goblin");
         monster->behavior = behavior;
         monster->set_max_health(4);
+        monster->set_weapon(std::make_shared<Knife>(1));
     }
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity& entity) {
