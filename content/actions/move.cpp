@@ -18,7 +18,7 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     else if (tile.has_entity()) {
         if (tile.entity->get_team() != entity->get_team()) {
             entity->get_weapon();
-            return alternative(Attack{*entity, *tile.entity});
+            return alternative(Attack{*tile.entity});
         }
         else {
             return alternative(Rest{});
