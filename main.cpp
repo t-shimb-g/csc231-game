@@ -15,6 +15,7 @@ int main() {
         for (int i = 0; i < 5; ++i) {
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_orc_masked(monster);
+            Monsters::make_orc(monster);
         }
         for (int i = 0; i < 5; ++i) {
             std::shared_ptr<Entity> monster = engine.create_monster();

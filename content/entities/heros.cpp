@@ -5,6 +5,8 @@
 #include "move.h"
 #include "closedoor.h"
 #include "cleaver.h"
+#include "sword.h"
+#include "axe.h"
 
 
 namespace Heros {
@@ -13,7 +15,7 @@ namespace Heros {
         entity->set_sprite("wizard");
         entity->behavior = behavior;
         entity->set_max_health(20);
-        entity->set_weapon(std::make_shared<Cleaver>(4));
+        entity->set_weapon(std::make_shared<Axe>(5));
     }
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity&) {

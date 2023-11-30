@@ -8,6 +8,7 @@
 #include "knife.h"
 #include "spear.h"
 #include "bite.h"
+#include "club.h"
 
 namespace Monsters {
     void make_orc_masked(std::shared_ptr<Entity> monster) {
@@ -29,6 +30,13 @@ namespace Monsters {
         monster->behavior = behavior;
         monster->set_max_health(4);
         monster->set_weapon(std::make_shared<Knife>(1));
+    }
+
+    void make_orc(std::shared_ptr<Entity> monster) {
+        monster->set_sprite("orc");
+        monster->behavior = behavior;
+        monster->set_max_health(16);
+        monster->set_weapon(std::make_shared<Club>(3));
     }
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity& entity) {
