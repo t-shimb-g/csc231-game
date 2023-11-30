@@ -104,7 +104,7 @@ std::unique_ptr<Action> Entity::take_turn() {
 }
 
 void Entity::set_sprite(const std::string& name) {
-    sprite = engine.graphics.get_animated_sprite(name);
+    sprite = engine.graphics.get_animated_sprite(name, 1, true);
 }
 
 void Entity::update() {

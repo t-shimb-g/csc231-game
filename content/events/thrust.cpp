@@ -1,6 +1,6 @@
 #include "thrust.h"
 
-constexpr int duration = 3;
+constexpr int duration = 5;
 constexpr int delta = 3; // change in pixels per frame
 
 Thrust::Thrust(Sprite& sprite, Vec direction)
