@@ -57,4 +57,16 @@ namespace Monsters {
             return std::make_unique<Rest>();
         }
     }
+
+    std::unique_ptr<Action> mimic_behavior(Engine& engine, Entity& entity) {
+        std::vector<Vec> neighbors = engine.dungeon.neighbors(entity.get_position());
+        bool activated = false;
+
+        for (Vec tilepos : neighbors) {
+            Tile& tile = engine.dungeon.get_tile(tilepos);
+            if (tile.entity->get_team() == Team::Hero) {
+
+            }
+        }
+    }
 }

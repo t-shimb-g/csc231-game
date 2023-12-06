@@ -9,12 +9,10 @@ Swing::Swing(Sprite& sprite, Vec direction)
     if (direction == Vec{1, 0}) { // right
         starting_angle = 0;
         delta = 135.0 / duration - 1;
-
     }
     else if (direction == Vec{-1, 0}) { // left
         starting_angle = 0;
         delta = -135.0 / (duration - 1);
-
     }
     else if (direction == Vec{0, 1}) { // up
         sprite.shift.y -= 12;

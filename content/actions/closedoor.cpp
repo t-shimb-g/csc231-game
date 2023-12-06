@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "engine.h"
 #include "updatefov.h"
+#include "audioevent.h"
 
 Result CloseDoor::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     Vec player_pos = entity->get_position();
@@ -18,6 +19,7 @@ Result CloseDoor::perform(Engine& engine, std::shared_ptr<Entity> entity) {
 
     if (closed_any_doors) {
         engine.events.create_event<UpdateFOV>();
+        engine.events.create_event<AudioEvent>("door-close");
         return success();
     }
     else {

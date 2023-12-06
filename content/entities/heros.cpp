@@ -7,6 +7,8 @@
 #include "cleaver.h"
 #include "sword.h"
 #include "axe.h"
+#include "cast_lightning.h"
+#include "throwaction.h" // MAKE THIS FILE
 
 
 namespace Heros {
@@ -15,7 +17,7 @@ namespace Heros {
         entity->set_sprite("wizard");
         entity->behavior = behavior;
         entity->set_max_health(20);
-        entity->set_weapon(std::make_shared<Axe>(5));
+        entity->set_weapon(std::make_shared<Sword>(5));
     }
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity&) {
@@ -37,6 +39,12 @@ namespace Heros {
         }
         else if (key == "C") {
             return std::make_unique<CloseDoor>();
+        }
+        else if (key == "L") {
+            return std::make_unique<CastLightning>();
+        }
+        else if (key == "T") {
+            return std::make_unique<ThrowAction>();
         }
 
         return nullptr;

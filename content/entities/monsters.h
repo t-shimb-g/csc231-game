@@ -12,4 +12,6 @@ namespace Monsters {
     void make_orc(std::shared_ptr<Entity> monster);
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity& entity);
+
+    std::unique_ptr<Action> mimic_behavior(Engine& engine, Entity& entity);
 }

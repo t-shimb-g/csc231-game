@@ -11,7 +11,7 @@ class Action;
 class Weapon;
 
 constexpr int default_speed{8};
-enum class Team { Hero, Monster };
+enum class Team { Hero, Monster, Chest };
 
 // base class for all interacting beings
 class Entity {

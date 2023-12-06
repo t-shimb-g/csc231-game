@@ -1,1 +1,8 @@
 background action-music.mp3
+death death.wav
+door-close door-close.mp3
+door-open door-open.mp3
+fire fire.mp3
+hit hit.wav
+metal-clang metal-clang.wav
+thunder thunder.mp3

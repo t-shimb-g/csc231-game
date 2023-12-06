@@ -39,3 +39,7 @@ const Sprite& Door::get_sprite() const {
     }
 }
 
+const Tile& Door::get_tile() const {
+    return tile;
+}
+

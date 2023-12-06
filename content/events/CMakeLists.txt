@@ -4,6 +4,9 @@ add_library(events
     die.cpp
     thrust.cpp
     swing.cpp
+    lightning.cpp
+    audioevent.cpp
+    throw.cpp
 )
 
 target_include_directories(events PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

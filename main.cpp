@@ -1,6 +1,7 @@
 #include "engine.h"
 #include "heros.h"
 #include "monsters.h"
+#include "chests.h"
 #include <iostream>
 #include "entity.h"
 
@@ -25,6 +26,10 @@ int main() {
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_goblin(monster);
         }
+        /*
+        std::shared_ptr<Entity> chest = engine.create_monster();
+        chest->set_team(Team::Chest);
+        Chests::make_full_chest(chest); */
 
         engine.run();
     }
