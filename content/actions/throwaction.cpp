@@ -18,9 +18,10 @@ Result ThrowAction::perform(Engine& engine, std::shared_ptr<Entity> entity) {
             Vec ending_tile = tile_parser;
             int delta = distance(ending_tile, starting_tile) * 16 / 10;
 
-
             std::shared_ptr<Event> test = engine.events.create_event<Throw>(weapon->sprite, direction, delta);
-            test->add_next(Hit{*tile.entity, (entity->get_weapon())->damage + 3});
+            if (tile.has_entity()) {
+                test->add_next(Hit{*tile.entity, (entity->get_weapon())->damage + 3});
+            }
             return success();
         }
         tile_parser += direction;

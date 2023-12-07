@@ -29,6 +29,5 @@ void Throw::execute(Engine& engine) {
 }
 
 void Throw::when_done(Engine& engine) {
-
-    sprite = copy;
+    sprite = copy; // This will leave once item works
 }
