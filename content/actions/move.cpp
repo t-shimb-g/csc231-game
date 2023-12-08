@@ -3,6 +3,7 @@
 #include "opendoor.h"
 #include "rest.h"
 #include "attack.h"
+#include "pickupitem.h"
 
 Move::Move(Vec direction)
     :direction{direction} {}
@@ -29,6 +30,9 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     }
     else {
         entity->move_to(new_pos);
+        if (tile.has_item() && entity->get_team() == Team::Hero) {
+            return alternative(PickupItem{tile});
+        }
         return success();
     }
 }

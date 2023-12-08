@@ -26,10 +26,10 @@ int main() {
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_goblin(monster);
         }
-        /*
+
         std::shared_ptr<Entity> chest = engine.create_monster();
         chest->set_team(Team::Chest);
-        Chests::make_full_chest(chest); */
+        Chests::make_full_chest(chest);
 
         engine.run();
     }

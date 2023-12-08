@@ -26,6 +26,7 @@ void Camera::render(const Dungeon& dungeon) const {
 
     // remember any doors that are in view, then draw them later on top of base tiles
     std::vector<std::pair<Vec, Sprite>> door_sprites;
+    std::vector<std::pair<Vec, Sprite>> item_sprites;
     
     // draw tile base sprite
     for (int y = ymin; y <= ymax; ++y) {
@@ -36,6 +37,9 @@ void Camera::render(const Dungeon& dungeon) const {
                 render(position, tile.sprite);
                 if (tile.has_door()) {
                     door_sprites.push_back({position, tile.door->get_sprite()});
+                }
+                if (tile.has_item()) {
+                    item_sprites.push_back({position, tile.item->get_sprite()});
                 }
             }
         }
@@ -50,6 +54,11 @@ void Camera::render(const Dungeon& dungeon) const {
 
     // draw doors
     for (const auto& [position, sprite] : door_sprites) {
+        render(position, sprite);
+    }
+
+    // draw items
+    for (const auto& [position, sprite] : item_sprites) {
         render(position, sprite);
     }
 }

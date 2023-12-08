@@ -8,6 +8,7 @@ add_library(actions
     cast_lightning.cpp
     openchest.cpp
     throwaction.cpp
+    pickupitem.cpp
 )
 
 target_include_directories(actions PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -6,6 +6,7 @@
 // forward declaration
 class Entity;
 class Door;
+class Item;
 
 class Tile {
 public:
@@ -14,6 +15,7 @@ public:
     bool has_door() const;
     bool has_entity() const;
     bool is_visible() const;
+    bool has_item() const;
     
     enum class Type { None, Floor, Wall, Door };
     
@@ -23,5 +25,6 @@ public:
     bool walkable;
 
     std::shared_ptr<Door> door;
+    std::shared_ptr<Item> item;
     Entity* entity;
 };

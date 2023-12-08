@@ -8,6 +8,7 @@ add_library(dungeon
   fog.cpp
   pathfinding.cpp
   dungeon.cpp
+  item.cpp
 )
 
 target_include_directories(dungeon PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

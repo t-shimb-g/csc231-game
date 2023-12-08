@@ -3,7 +3,9 @@
 #include "animatedsprite.h"
 #include "vec.h"
 #include "sprite.h"
+#include "item.h"
 #include <memory>
+#include <queue>
 
 // forward declarations
 class Engine;
@@ -62,6 +64,9 @@ private:
     // speed is energy gain per turn, once an entity has enough energy
     // it can take a turn
     int speed{default_speed}, energy{0};
+
+    // vector of items is entity's inventory
+    std::queue<std::shared_ptr<Item>> inventory;
 
     void adjust_weapon_position();
     

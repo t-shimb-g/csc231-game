@@ -15,6 +15,12 @@ Result ThrowAction::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     while (true) {
         Tile& tile = engine.dungeon.get_tile(tile_parser);
         if (tile.has_entity() || tile.is_wall() || tile.has_door()) {
+            if (tile.has_door()) {
+                if (tile.door->is_open()) {
+                    tile_parser += direction;
+                    continue;
+                }
+            }
             Vec ending_tile = tile_parser;
             int delta = distance(ending_tile, starting_tile) * 16 / 10;
 
