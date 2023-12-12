@@ -22,4 +22,5 @@ demon_tiny 368 48 16 16 4
 demon 368 328 16 24 4
 demon_big  16 364 32 36 4
 
-mimic 304 320 16 16
+mimic_still 304 320 16 16
+mimic 304 320 16 16 3

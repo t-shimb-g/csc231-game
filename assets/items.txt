@@ -14,5 +14,6 @@ heart_full 288 256 16 16
 heart_half 304 256 16 16
 heart_empty 320 256 16 16
 
-chest_empty 304 288 16 16
-chest_full 304 304 16 16
+chest_full1 304 304 16 16 1
+chest_full2 320 304 16 16 1
+chest_full3 336 304 16 16 1

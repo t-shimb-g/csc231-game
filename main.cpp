@@ -22,7 +22,7 @@ int main() {
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_zombie(monster);
         }
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < 2; ++i) {
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_goblin(monster);
         }
@@ -30,6 +30,9 @@ int main() {
         std::shared_ptr<Entity> chest = engine.create_monster();
         chest->set_team(Team::Chest);
         Chests::make_full_chest(chest);
+
+        std::shared_ptr<Entity> mimic = engine.create_monster();
+        Chests::make_mimic_chest(mimic);
 
         engine.run();
     }

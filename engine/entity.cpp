@@ -96,6 +96,15 @@ Team Entity::get_team() const {
     return team;
 }
 
+std::shared_ptr<Item> Entity::get_item() const {
+    if (inventory.empty()) {
+        return nullptr;
+    }
+    else {
+        return inventory.front();
+    }
+}
+
 std::unique_ptr<Action> Entity::take_turn() {
     if (behavior) {
         return behavior(engine, *this);

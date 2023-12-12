@@ -4,6 +4,7 @@
 #include "rest.h"
 #include "attack.h"
 #include "pickupitem.h"
+#include "openchest.h"
 
 Move::Move(Vec direction)
     :direction{direction} {}
@@ -18,7 +19,9 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     }
     else if (tile.has_entity()) {
         if (tile.entity->get_team() != entity->get_team()) {
-            entity->get_weapon();
+            if (tile.entity->get_team() == Team::Chest) {
+                return alternative(OpenChest{*tile.entity});
+            }
             return alternative(Attack{*tile.entity});
         }
         else {

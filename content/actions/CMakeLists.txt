@@ -9,6 +9,7 @@ add_library(actions
     openchest.cpp
     throwaction.cpp
     pickupitem.cpp
+    mimicbite.cpp
 )
 
 target_include_directories(actions PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

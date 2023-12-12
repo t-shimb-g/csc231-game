@@ -16,7 +16,7 @@ Result ThrowAction::perform(Engine& engine, std::shared_ptr<Entity> entity) {
         Tile& tile = engine.dungeon.get_tile(tile_parser);
         if (tile.has_entity() || tile.is_wall() || tile.has_door()) {
             if (tile.has_door()) {
-                if (tile.door->is_open()) {
+                if (tile.door->is_open() && !tile.has_entity()) {
                     tile_parser += direction;
                     continue;
                 }
@@ -24,9 +24,9 @@ Result ThrowAction::perform(Engine& engine, std::shared_ptr<Entity> entity) {
             Vec ending_tile = tile_parser;
             int delta = distance(ending_tile, starting_tile) * 16 / 10;
 
-            std::shared_ptr<Event> test = engine.events.create_event<Throw>(weapon->sprite, direction, delta);
+            std::shared_ptr<Event> throw_event = engine.events.create_event<Throw>(weapon->sprite, direction, delta);
             if (tile.has_entity()) {
-                test->add_next(Hit{*tile.entity, (entity->get_weapon())->damage + 3});
+                throw_event->add_next(Hit{*tile.entity, (entity->get_weapon())->damage + 3});
             }
             return success();
         }

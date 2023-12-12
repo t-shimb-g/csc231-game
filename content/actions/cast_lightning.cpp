@@ -3,7 +3,6 @@
 #include "entity.h"
 #include "engine.h"
 #include "lightning.h"
-#include <iostream>
 
 Vec find_good_position(Engine& engine, Vec position) {
     auto [px, py] = position;
@@ -21,7 +20,6 @@ Vec find_good_position(Engine& engine, Vec position) {
 Result CastLightning::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     for (int i = 0; i < 5; ++i) {
         Vec good_pos = find_good_position(engine, entity->get_position());
-        std::cout << "Here";
         engine.events.create_event<Lightning>(good_pos);
     }
     return success();
