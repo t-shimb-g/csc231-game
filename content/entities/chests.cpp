@@ -9,8 +9,6 @@ namespace Chests {
     void make_full_chest(std::shared_ptr<Entity> chest) {
         chest->set_sprite("chest_full1");
         chest->behavior = behavior;
-        chest->set_max_health(10);
-        chest->set_weapon(std::make_shared<Bite>(0));
     }
 
     void make_mimic_chest(std::shared_ptr<Entity> chest) {

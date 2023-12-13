@@ -46,6 +46,10 @@ namespace Heros {
         else if (key == "T") {
             return std::make_unique<ThrowAction>();
         }
+        else if (key == "R") {
+            // CYCLE INVENTORY
+            //return std::make_unique<>()
+        }
 
         return nullptr;
     }

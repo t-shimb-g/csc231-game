@@ -71,3 +71,5 @@ void Entities::advance() {
 void Entities::remove_dead_entities() {
     std::erase_if(entities, [](std::shared_ptr<Entity> entity) { return !entity->alive; });
 }
+
+

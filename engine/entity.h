@@ -39,7 +39,7 @@ public:
     std::shared_ptr<Weapon> get_weapon() const;
     void set_team(Team team);
     Team get_team() const;
-    std::shared_ptr<Item> get_item() const;
+    std::shared_ptr<Item> get_item();
 
     // taking turns
     std::unique_ptr<Action> take_turn();
@@ -49,6 +49,10 @@ public:
     void set_sprite(const std::string& name);
     void update();
     std::vector<Sprite> get_sprites() const;
+
+    // inventory
+    std::queue<std::shared_ptr<Item>> get_inventory() const;
+    void add_to_inventory(std::shared_ptr<Item> item);
 
 private:
     Engine& engine;
@@ -62,12 +66,12 @@ private:
     // teams can be used to determine who can attack whom
     Team team;
 
+    // inventory is a queue of items
+    std::queue<std::shared_ptr<Item>> inventory;
+
     // speed is energy gain per turn, once an entity has enough energy
     // it can take a turn
     int speed{default_speed}, energy{0};
-
-    // queue of items is entity's inventory
-    std::queue<std::shared_ptr<Item>> inventory;
 
     void adjust_weapon_position();
     

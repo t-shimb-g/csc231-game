@@ -96,12 +96,14 @@ Team Entity::get_team() const {
     return team;
 }
 
-std::shared_ptr<Item> Entity::get_item() const {
+std::shared_ptr<Item> Entity::get_item() {
     if (inventory.empty()) {
         return nullptr;
     }
     else {
-        return inventory.front();
+        std::shared_ptr<Item> item = inventory.front();
+        inventory.pop();
+        return item;
     }
 }
 
@@ -125,6 +127,16 @@ std::vector<Sprite> Entity::get_sprites() const {
     return {weapon->sprite, s};
 }
 
+std::queue<std::shared_ptr<Item>> Entity::get_inventory() const {
+    return inventory;
+}
+
+void Entity::add_to_inventory(std::shared_ptr<Item> item) {
+    inventory.push(item);
+//    auto temp_item = inventory.front();
+//    inventory.pop();
+//    inventory.push(temp_item);
+}
 
 void Entity::adjust_weapon_position() {
     if (direction.x == 1) {

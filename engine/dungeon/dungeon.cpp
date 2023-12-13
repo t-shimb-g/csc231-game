@@ -1,11 +1,10 @@
 #include "dungeon.h"
 #include "fov.h"
 #include "randomness.h"
-#include <sstream>
     
 Dungeon::Dungeon(const Grid<Tile>& tiles, const std::vector<Room>& rooms,
-                 const std::unordered_map<Vec, AnimatedSprite>& doodads)
-    :tiles{tiles}, rooms{rooms}, doodads{doodads} {
+                 const std::unordered_map<Vec, AnimatedSprite>& decorations)
+    :tiles{tiles}, rooms{rooms}, decorations{decorations} {
     // all tiles are not visible when first created
     for (int y = 0; y < tiles.height; ++y) {
         for (int x = 0; x < tiles.width; ++x) {
@@ -29,7 +28,7 @@ Vec Dungeon::random_open_room_tile() const {
 }
 
 void Dungeon::update() {
-    for (auto& [position, animated_sprite] : doodads) {
+    for (auto& [position, animated_sprite] : decorations) {
         if (tiles(position).visible) {
             animated_sprite.update();
         }
@@ -72,7 +71,7 @@ bool Dungeon::is_blocking(const Vec& position) const {
     }
 }
 
-std::unordered_set<Vec> Dungeon::calculate_fov(const Vec& position) const {
+std::set<Vec> Dungeon::calculate_fov(const Vec& position) const {
     FieldOfView fov(*this);
     return fov.compute(position);
 }

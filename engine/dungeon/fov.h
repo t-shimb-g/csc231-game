@@ -4,23 +4,23 @@
 
 #include <vector>
 #include <optional>
-#include <unordered_set>
+#include <set>
 
 
 // forward declarations
 class Dungeon;
 
-// Albert Ford's Symmetric Shadowcasting
+// Albert Ford's Symmetric Shadow-casting
 class Quadrant {
 public:
     enum class Cardinal { North, East, South, West };
 
-    Quadrant() = default;
+    Quadrant();
     Quadrant(Cardinal direction, const Vec& origin);
 
     // converts tile coords (row, col) to dungeon coords (x, y)
     // for the given Cardinal direction
-    Vec transform(const Vec& tile) const;
+    [[nodiscard]] Vec transform(const Vec& tile) const;
         
     Cardinal direction;
     Vec origin;
@@ -32,8 +32,8 @@ using Fraction = Vec;
 class Row {
 public:
     Row(int depth, const Fraction& start_slope, const Fraction& end_slope);
-    std::vector<Vec> tiles() const;
-    Row next() const;
+    [[nodiscard]] std::vector<Vec> tiles() const;
+    [[nodiscard]] Row next() const;
         
     int depth;
     Fraction start_slope, end_slope;
@@ -41,9 +41,9 @@ public:
     
 class FieldOfView {
 public:
-    FieldOfView(const Dungeon& dungeon);
+    explicit FieldOfView(const Dungeon& dungeon);
 
-    std::unordered_set<Vec> compute(const Vec& position);
+    const std::set<Vec>& compute(const Vec& position);
     void mark_visible(const Vec& position);
 
     // helper functions for dealing with current quadrant
@@ -54,7 +54,7 @@ public:
 
 private:
     const Dungeon& dungeon;
-    std::unordered_set<Vec> visible;
+    std::set<Vec> visible;
     Quadrant quadrant;
 };
 

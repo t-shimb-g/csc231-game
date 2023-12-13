@@ -1,6 +1,9 @@
 #include "vec.h"
 #include <cmath>
 
+bool operator<(const Vec& a, const Vec& b) {
+    return (a.x < b.x) || ((a.x == b.x) && (a.y < b.y));
+}
 
 bool operator==(const Vec& a, const Vec& b) {
     return a.x == b.x && a.y == b.y;

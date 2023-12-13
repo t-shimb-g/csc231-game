@@ -151,3 +151,11 @@ void Engine::render() {
     graphics.redraw();
 }
 
+void Engine::remove_entity(Entity& entity) {
+    //re move from dungeon tile
+    Vec position = entity.get_position();
+    dungeon.remove_entity(position);
+
+    // remove from active entiteis by setting health to zero
+    entity.set_max_health(0);
+}

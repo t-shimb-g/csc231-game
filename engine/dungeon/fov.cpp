@@ -2,7 +2,8 @@
 #include "dungeon.h"
 #include <cmath>
 
-
+Quadrant::Quadrant()
+    :direction{}, origin{} {}
 Quadrant::Quadrant(Cardinal direction, const Vec& origin)
     :direction{direction}, origin{origin} {}
 
@@ -17,7 +18,7 @@ Vec Quadrant::transform(const Vec& tile) const {
     else if (direction == Cardinal::East) {
         return origin + Vec{row, col};
     }
-    else { // Cardinal::West
+    else { // West
         return origin + Vec{-row, col};
     }
 }
@@ -49,13 +50,13 @@ Row Row::next() const {
 FieldOfView::FieldOfView(const Dungeon& dungeon)
     :dungeon{dungeon} {}
 
-std::unordered_set<Vec> FieldOfView::compute(const Vec& position) {
+const std::set<Vec>& FieldOfView::compute(const Vec& position) {
     visible.clear();
     mark_visible(position);
 
     for (int i = 0; i < 4; ++i) {
         quadrant = Quadrant(static_cast<Quadrant::Cardinal>(i), position);
-        auto first_row = Row{1, Fraction{-1, 1}, Fraction{1, 1}};
+        Row first_row{1, Fraction{-1, 1}, Fraction{1, 1}};
         scan(first_row);
     }
 

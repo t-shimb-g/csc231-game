@@ -6,11 +6,6 @@ class Entity;
 
 class Item {
 public:
-    Item(Sprite sprite);
-
     virtual void interact(std::shared_ptr<Entity> entity) = 0;
-    Sprite get_sprite();
-
-private:
-    Sprite sprite;
+    virtual Sprite get_sprite() const = 0;
 };

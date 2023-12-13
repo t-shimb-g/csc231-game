@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "weapon.h"
 #include "hit.h"
+#include "droploot.h"
 
 Result ThrowAction::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     Entity& attacker = *entity;
@@ -28,6 +29,7 @@ Result ThrowAction::perform(Engine& engine, std::shared_ptr<Entity> entity) {
             if (tile.has_entity()) {
                 throw_event->add_next(Hit{*tile.entity, (entity->get_weapon())->damage + 3});
             }
+            throw_event->add_next(DropLoot{ending_tile - direction, entity->get_item()});
             return success();
         }
         tile_parser += direction;

@@ -2,13 +2,15 @@
 
 #include "item.h"
 
-class Heart : public Item {
+class Weapon;
+
+class SwordItem : public Item {
 public:
-    Heart(Sprite sprite);
+    SwordItem(std::shared_ptr<Weapon> weapon);
 
     void interact(std::shared_ptr<Entity> entity) override;
     Sprite get_sprite() const override;
 
 private:
-    Sprite sprite;
+    std::shared_ptr<Weapon> weapon;
 };

@@ -19,6 +19,8 @@ public:
     // add a monster to the game
     std::shared_ptr<Entity> create_monster();
 
+    void remove_entity(Entity& entity);
+
     // starting and stopping the game
     void run();
     void stop();

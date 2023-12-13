@@ -10,14 +10,14 @@
 #include "pathfinding.h"
 #include <vector>
 #include <unordered_map>
-#include <unordered_set>
+#include <set>
 
 
 class Dungeon {
 public:
     Dungeon() = default;
     Dungeon(const Grid<Tile>& tiles, const std::vector<Room>& rooms,
-            const std::unordered_map<Vec, AnimatedSprite>& doodads);
+            const std::unordered_map<Vec, AnimatedSprite>& decorations);
 
     // return the position of an unoccupied tile
     Vec random_open_room_tile() const;
@@ -40,7 +40,7 @@ public:
     bool is_blocking(const Vec& position) const;
 
     // compute the set of tiles that can be seen from position
-    std::unordered_set<Vec> calculate_fov(const Vec& position) const;
+    std::set<Vec> calculate_fov(const Vec& position) const;
 
     // computes a series of open tiles from start to stop
     Path calculate_path(const Vec& start, const Vec& stop) const;
@@ -52,6 +52,6 @@ public:
 
     // other elements of the dungeon
     std::vector<Room> rooms;
-    std::unordered_map<Vec, AnimatedSprite> doodads; // decorations on tiles (e.g. torches)
+    std::unordered_map<Vec, AnimatedSprite> decorations; // decorations on tiles (e.g. torches)
     Fog fog; // used for computing which tiles are visible for hero
 };
